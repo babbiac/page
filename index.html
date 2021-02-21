@@ -1,5 +1,202 @@
+<!DOCTYPE html>
 <html>
-<title>Team us</title>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="stylesheet.css">
+  
+  <title>Dashboard Light Guide</title>
+
+</head>
+
 <body>
+    <div class="img-slider">
+      <div class="slide active">
+        <img src="airbagandseatfaultsystem.png", alt="airbagandseatfaultsystem">
+        <div class="info">
+          <h2>airbag and seat fault system</h2>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="antilockbrakesystem.png", alt="antilockbrakesystem">
+        <div class="info">
+          <h2>antilock brake system <em>(ABS)</em></h2>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="brakepad.png", alt="brakepad">
+        <div class="info">
+          <h2>brake pad</h2>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="brakesystem.png", alt="brakesystem">
+        <div class="info">
+          <h2>brake system</h2>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="chargingsystem.png", alt="chargingsystem">
+        <div class="info">
+          <h2>charging system</h2>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="cruisecontrol.png", alt="cruisecontrol">
+        <div class="info">
+          <h2>cruise control</h2>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="electronicstabilityprogramme.png", alt="electronicstabilityprogramme">
+        <div class="info">
+          <h2>electronic stability program <em>(ESP)</em></h2>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="enginecontrollamp.png", alt="enginecontrollamp">
+        <div class="info">
+          <h2>engine control lamp</h2>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="enginecoolsystem.png", alt="enginecoolsystem">
+        <div class="info">
+          <h2>engine cool system</h2>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="engineoilpressure.png", alt="engineoilpressure">
+        <div class="info">
+          <h2>engine oil pressure</h2>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="foglight.png", alt="foglight">
+        <div class="info">
+          <h2>foglight</h2>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="headlightsshort.png", alt="headlightsshort">
+        <div class="info">
+          <h2>headlights short</h2>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="headlightslong.png", alt="headlightslong">
+        <div class="info">
+          <h2>headlights long</h2>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="lowfuel.png", alt="lowfuel">
+        <div class="info">
+          <h2>low fuel</h2>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="powersteering.png", alt="powersteering">
+        <div class="info">
+          <h2>power steering</h2>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="seatbeltnoton.png", alt="seatbeltnoton">
+        <div class="info">
+          <h2>seat belt not on</h2>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="serviceauto.png", alt="serviceauto">
+        <div class="info">
+          <h2>service auto</h2>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="washerfluidlow.png", alt="washerfluidlow">
+        <div class="info">
+          <h2>washer fluid low</h2>
+        </div>
+      </div>
+      <div class="navigation">
+        <div class="btn active"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+    var slides = document.querySelectorAll('.slide');
+    var btns = document.querySelectorAll('.btn');
+    let currentSlide = 1;
+
+    // Javascript for image slider manual navigation
+    var manualNav = function(manual){
+      slides.forEach((slide) => {
+        slide.classList.remove('active');
+
+        btns.forEach((btn) => {
+          btn.classList.remove('active');
+        });
+      });
+
+      slides[manual].classList.add('active');
+      btns[manual].classList.add('active');
+    }
+
+    btns.forEach((btn, i) => {
+      btn.addEventListener("click", () => {
+        manualNav(i);
+        currentSlide = i;
+      });
+    });
+
+    // Javascript for image slider autoplay navigation
+    var repeat = function(activeClass){
+      let active = document.getElementsByClassName('active');
+      let i = 1;
+
+      var repeater = () => {
+        setTimeout(function(){
+          [...active].forEach((activeSlide) => {
+            activeSlide.classList.remove('active');
+          });
+
+        slides[i].classList.add('active');
+        btns[i].classList.add('active');
+        i++;
+
+        if(slides.length == i){
+          i = 0;
+        }
+        if(i >= slides.length){
+          return;
+        }
+        repeater();
+      }, 10000);
+      }
+      repeater();
+    }
+    repeat();
+    </script>
 </body>
+
 </html>
